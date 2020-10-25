@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://pjaew94:wnstjd77@pizzaproject.hdnuf.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "thereisnocowlevel"
+}

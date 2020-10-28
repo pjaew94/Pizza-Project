@@ -1,10 +1,43 @@
-import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent, waitFor, screen, cleanup } from '@testing-library/react';
-import ButtonSimple from '../ButtonSimple';
+import React from "react";
+import "@testing-library/jest-dom/extend-expect";
+import { render, screen, cleanup } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import ButtonSimple from "../ButtonSimple";
+import { MemoryRouter } from "react-router-dom";
 
+beforeEach(() =>
+  render(<ButtonSimple route={"delivery"} textContent={"Get Started"} />, {
+    wrapper: MemoryRouter,
+  })
+);
 afterAll(() => cleanup());
 
-test("Button directs to specified route", () => {
+test("Link button directs to specified route", () => {
+  const button = screen.getByTestId("button-simple");
 
-})
+  expect(button).toHaveAttribute("href", "/delivery");
+});
+
+test("Button displays correct text content", () => {
+  const button = screen.getByTestId("button-simple");
+
+  expect(button).toHaveTextContent("Get Started");
+});
+
+test("Class 'hovered' implemented upon hover", () => {
+  const button = screen.getByTestId("button-simple");
+
+  userEvent.hover(button);
+  expect(button).toHaveClass("hovered");
+
+  userEvent.unhover(button);
+  expect(button).not.toHaveClass("hovered");
+});
+
+test("Class 'clicked' implemented upon click", () => {
+  const button = screen.getByTestId("button-simple");
+
+  userEvent.click(button);
+//   Test omitted due to library not having onMouseDown/Up functionality
+//   expect(button).toHaveClass("clicked");
+});

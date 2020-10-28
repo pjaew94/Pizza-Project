@@ -1,0 +1,24 @@
+@import '../config';
+
+.button-simple {
+    @include main-font(1rem, 700, $black-color);
+    text-decoration: none;
+    color: black;
+    border: none;
+    background: $pink-color;
+    border-radius: 30px;
+    padding: 20px 50px;
+    transition: 0.3s all ease-in;
+    cursor: pointer;
+}
+
+
+.hovered {
+    background: $pinkHover-color;
+
+}
+
+.clicked {
+    background: $offWhite-color;
+    border: 3px solid $pink-color;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Varela+Round&display=swap');
+
+$offWhite-color: #f9f9f9;
+$pink-color: #FEAF7B;
+$pinkHover-color: #ff8a3c;
+$black-color: #0B0A08;
+
+@mixin flex($align, $justify, $direction) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
+@mixin main-font($size, $weight, $color) {
+    font-family: 'Varela Round', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+
+}

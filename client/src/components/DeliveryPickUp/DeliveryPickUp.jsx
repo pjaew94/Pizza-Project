@@ -13,7 +13,7 @@ const DeliveryPickUp = () => {
 
 
   return (
-    <div className="delivery_pickup_container">
+    <div data-testid="delivery-pickup" className="delivery_pickup_container">
 
     </div>
   );

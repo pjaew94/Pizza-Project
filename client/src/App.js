@@ -6,9 +6,9 @@ import './App.css';
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Home from './components/layout/Home';
-import FileUpload from './components/layout/Forms/AwsTest'
-import DeliveryPickUp from './components/layout/DeliveryPickUp'
+import Home from './components/Home/Home';
+import FileUpload from './components/Forms/AwsTest'
+import DeliveryPickUp from './components/DeliveryPickUp/DeliveryPickUp'
 
 
 import setAuthToken from './utils/setAuthToken';

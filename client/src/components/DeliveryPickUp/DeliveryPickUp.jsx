@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import '../styles/DeliveryPickUp.scss'
+import './DeliveryPickUp.scss'
 
 const DeliveryPickUp = () => {
 

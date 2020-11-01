@@ -7,22 +7,31 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import Home from './components/Home/Home';
+import NavbarM from './components/NavbarM/NavbarM'
+import NavigatorM from './components/NavigatorM/NavigatorM'
 import FileUpload from './components/Forms/AwsTest'
 import DeliveryPickUp from './components/DeliveryPickUp/DeliveryPickUp'
 
 
 import setAuthToken from './utils/setAuthToken';
 
+import { loadUser } from './actions/auth'
+
 if(localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
 const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser())
+  }, [])
 
   return (
     <Provider store={store}>
       <Router>
         <Fragment>
+        <NavbarM />
+        <NavigatorM />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/upload' component={FileUpload} />

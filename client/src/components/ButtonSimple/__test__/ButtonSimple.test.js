@@ -34,10 +34,11 @@ test("Class 'hovered' implemented upon hover", () => {
   expect(button).not.toHaveClass("hovered");
 });
 
-test("Class 'clicked' implemented upon click", () => {
-  const button = screen.getByTestId("button-simple");
+// Test omitted due to library lacking onMouseDown/Up functionality
+// test("Class 'clicked' implemented upon click", () => {
+//   const button = screen.getByTestId("button-simple");
 
-  userEvent.click(button);
-//   Test omitted due to library not having onMouseDown/Up functionality
+//   userEvent.click(button);
+
 //   expect(button).toHaveClass("clicked");
-});
+// });

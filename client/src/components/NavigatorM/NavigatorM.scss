@@ -1,0 +1,46 @@
+@import "../config";
+
+@media screen and (max-width: 430px) {
+    .navigator-container {
+        @include flex(center, flex-start, row);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 10;
+        transition: 0.3s all ease-in-out;
+        transform: translateX(-100vw);
+        background: transparent;
+
+        .inner {
+            height: 100vh;
+            width: 70vw;
+            background: $offBlack-color;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            
+        }
+
+        .backdrop {
+            height: 100vh;
+            width: 30vw;
+            background: transparent;
+        
+        }
+
+        // @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        //     .backdrop {
+        //         -webkit-backdrop-filter: blur(4px);
+        //         backdrop-filter: blur(1px);
+        //         background-color: rgba(255, 255, 255, 0.4);
+        //     }
+        // }
+    }
+
+    .show-navigator {
+        transform: translateX(0);
+    }
+
+
+}

@@ -36,6 +36,9 @@ const MenuSchema = new Schema({
     largeCalories: {
         type: Number
     },
+    imgLink: {
+        type: String
+    }
 })
 
 module.exports = Menu = mongoose.model("menu", MenuSchema);

@@ -1,44 +1,46 @@
-@import '../config';
-
-
+@import "../config";
 
 @media screen and (max-width: 430px) {
     .home-container {
         height: 100vh;
         width: 100vw;
         overflow: hidden;
-        @include flex(center, flex-end, column);
-        background: $offBlack-color;
- 
+        @include flex(center, flex-start, column);
+        background: $offWhite-color;
 
         .inner {
-            height: 90vh;
+            height: 80vh;
             width: 100%;
             background: $offWhite-color;
             @include flex(center, center, column);
             overflow: hidden;
-            border-top-right-radius: 30px;
-            border-top-left-radius: 30px;
-            
-  
-            
-        
 
-        h1 {
-            @include main-font(2rem, 400, $black-color);
-            width: 80%;
+            h1 {
+                @include main-font(2rem, 400, $black-color);
+                width: 80%;
+                transform: translateY(5vh);
 
-            span {
-                @include main-font(2.6rem, 700, $black-color);
+                span {
+                    @include main-font(2.6rem, 700, $black-color);
+                }
+            }
+
+            img {
+                width: 120vw;
+                height: auto;
+             
+                margin-top: 5vh;
+                transform: translateY(5vh);
             }
         }
-
-        img {
-            width: 120vw;
-            height: auto;
-            margin-bottom: 5vh;
-            margin-top: 5vh;
-        }
     }
-}
+
+    .button_container {
+        height: 20vh;
+        width: 100vw;
+        @include flex(center, center, row);
+        background: $offBlack-color;
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+    }
 }

@@ -1,0 +1,11 @@
+@import "../config";
+
+@media screen and (max-width: 430px) {
+    .dashboard-container {
+        height: auto;
+        width: 100vw;
+        background: $offWhite-color;
+        margin-top: 7vh;
+
+    }
+}

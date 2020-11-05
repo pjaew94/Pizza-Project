@@ -1,0 +1,149 @@
+@import "../config";
+
+@media screen and (max-width: 430px) {
+    .location-container {
+        height: 100vh;
+        width: 100vw;
+        @include flex(center, center, column);
+
+        .inner {
+            min-height: 60vh;
+            height: auto;
+            width: 90vw;
+            @include flex(center, center, column);
+
+            .delivery-or-carryOut {
+                height: auto;
+                width: 70%;
+                @include flex(center, space-between, row);
+              
+
+                .d-or-c-selector {
+                    height: auto;
+                    width: auto;
+                    @include flex(center, center, column);
+                    padding: 12px;
+                    border-radius: 15px;
+                    transition: 0.3s all ease-in-out;
+
+                    img {
+                        height: 75px;
+                        width: auto;
+                        padding: 10px;
+                        border-radius: 50%;
+                        margin-bottom: 10px;
+                        box-shadow: $box-shadow;
+                        -webkit-box-shadow: $box-shadow;
+                        -moz-box-shadow: $box-shadow;
+                        
+                    }
+
+                    h3 {
+                        @include minor-font(0.8rem, 700, $offBlack-color);
+                        transition: 0.3s all ease-in-out;
+                    }
+                }
+
+                .selected-option {
+                    background: $offBlack-color;
+                    box-shadow: $box-shadow;
+
+                    h3 {
+                        background: $offBlack-color;
+                        color: $offWhite-color;
+                    }
+                }
+            }
+
+
+
+     
+
+            form {
+                height: auto;
+                width: 100%;
+                @include flex(center, center, column);
+                margin-top: 50px;
+
+                .form-inner {
+                    height: auto;
+                    width: 100%;
+                    padding: 50px 20px;
+                    background: $pink-color;
+                    border-radius: 20px;
+                    margin-bottom: 50px;
+                    box-shadow: $box-shadow;
+                    -webkit-box-shadow: $box-shadow;
+                    -moz-box-shadow: $box-shadow;
+
+                    .input-container {
+                        height: auto;
+                        width: 100%;
+                        @include flex(center, space-between, row);
+                        margin-bottom: 30px;
+                        background: $pink-color;
+
+                        h3 {
+                            background: $pink-color;
+                            @include minor-font(0.9rem, 700, $offWhite-color);
+                            width: 30%;
+                        }
+
+                        select,
+                        input {
+                            width: 70%;
+                            outline: none;
+                            border: none;
+                            height: 1.9rem;
+                            border-radius: 20px;
+                            padding: 2px 10px;
+                            @include minor-font(0.9rem, 400, $offBlack-color);
+                        }
+                    }
+
+                    .last-input {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .submit-input {
+                    @include main-font(1rem, 700, $offWhite-color);
+                    text-decoration: none;
+                    border: none;
+                    background: $offBlack-color;
+                    border-radius: 30px;
+                    padding: 20px 50px;
+                    transition: 0.3s all ease-in;
+                    cursor: pointer;
+                    box-shadow: $box-shadow;
+                    -webkit-box-shadow: $box-shadow;
+                    -moz-box-shadow: $box-shadow;
+                }
+
+                .carry-out {
+                    height: 35vh;
+                    width: 100%;
+                    @include flex(center, center, column);
+                    background: $pink-color;
+                    border-radius: 20px;
+                    padding: 20px;
+                    margin-bottom: 50px;
+                    box-shadow: $box-shadow;
+                    
+
+                    h1 {
+                        @include main-font(2.8rem, 700, $offWhite-color);
+                        background: $pink-color;
+                        margin-bottom: 30px;
+                    }
+
+                    h3 {
+                        @include minor-font(1.2rem, 700, $offWhite-color);
+                        background: $pink-color;
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -21,15 +21,15 @@
             .hamburger {
                 @include flex(flex-start, space-around, column);
                 position: absolute;
-                height: 23px;
+                height: 18px;
                 width: 30px;
                 background: transparent;
                 transition: 0.3s all ease-in-out;
 
                 span {
-                    height: 4px;
+                    height: 3px;
                     border-radius: 10px;
-                    background: $offWhite-color;
+                    background: $offBlack-color;
                 }
 
                 .span-1 {

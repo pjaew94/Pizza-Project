@@ -42,6 +42,7 @@ router.post(
         smallCalories,
         mediumCalories,
         largeCalories,
+        imgLink
       } = req.body;
 
       const newMenu = new Menu({
@@ -55,6 +56,7 @@ router.post(
         smallCalories,
         mediumCalories,
         largeCalories,
+        imgLink
       });
 
       const menuItem = await newMenu.save();

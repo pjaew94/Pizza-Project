@@ -12,7 +12,6 @@ import NavigatorM from './components/NavigatorM/NavigatorM'
 import Location from './components/Location/Location'
 import Dashboard from './components/Dashboard/Dashboard'
 import FileUpload from './components/Forms/AwsTest'
-import DeliveryPickUp from './components/DeliveryPickUp/DeliveryPickUp'
 
 
 import setAuthToken from './utils/setAuthToken';
@@ -39,7 +38,6 @@ const App = () => {
             <Route exact path='/location' component={Location} />
             <Route exact path='/upload' component={FileUpload} />
             <Route exact path='/menu' component={Dashboard} />
-            <Route exact path='/delivery' component={DeliveryPickUp} />
           </Switch>
         </Fragment>
       </Router>

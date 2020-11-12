@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import axios from "axios";
 
+import allIcon from "../../media/icon-all.svg";
 import drinkIcon from "../../media/icon-drink.svg";
 import pastaIcon from "../../media/icon-pasta.svg";
 import pizzaIcon from "../../media/icon-pizza.svg";
@@ -10,24 +11,32 @@ import sidesIcon from "../../media/icon-sides.svg";
 import saladIcon from "../../media/icon-salad.svg";
 import chickenIcon from "../../media/icon-chicken.svg";
 
+import Menu from "../Menu/Menu";
 import "./Dashboard.scss";
 
 const Dashboard = ({ location: { location } }) => {
   const [menu, setMenu] = useState();
-  const [selected, setSelected] = useState('Pizza');
+  const [filteredMenu, setFilteredMenu] = useState();
+  const [selected, setSelected] = useState("all");
 
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("/api/menu");
 
       setMenu(res.data);
+      setFilteredMenu(res.data);
     }
     fetchData();
   }, []);
 
   const { option, addressType, streetAddress, suiteApt, zipCode } = location;
 
+  //   menu selector.
   const menuSelectors = [
+    {
+      icon: allIcon,
+      text: "All",
+    },
     {
       icon: pizzaIcon,
       text: "Pizza",
@@ -54,43 +63,65 @@ const Dashboard = ({ location: { location } }) => {
     },
   ];
 
+  // Filters entire menu to the category chosen
+  const filterMenu = (category) => {
+    setSelected(category);
+
+    if (category === "all") {
+      setFilteredMenu(menu);
+    } else {
+      const filtered = menu.filter(function (i) {
+        return i.category === category;
+      });
+
+      setFilteredMenu(filtered);
+    }
+  };
+
   const header = (
     <div className="order-option-address-container">
       <div className="inner">
-        <h2>{option === "Delivery" ? "Food Delivery" : "Carry Out"}</h2>
-        <h3>
-          {option === "Delivery"
-            ? `${streetAddress}${suiteApt ? " " + suiteApt : ""}, ${zipCode}`
-            : "Carry Out"}
-        </h3>
+        <div className="inner2">
+          <h2>{option === "Delivery" ? "Food Delivery" : "Carry Out"}</h2>
+          <h3>
+            {option === "Delivery"
+              ? `${streetAddress}${suiteApt ? " " + suiteApt : ""}, ${zipCode}`
+              : "777 Best Pizza Ct. 17742, Los Angeles California"}
+          </h3>
+        </div>
       </div>
     </div>
   );
 
   const menuSelection = (
     <div className="menu-selection-container">
-      {menuSelectors.map((item) => {
-        return (
-          <div
-            className={`menu-selector-container ${
-              selected === item.text && "selected-option"
-            }`}
-            key={item.text}
-            onClick={() => setSelected(item.text)}
-          >
-            <img src={item.icon} alt="icon img" />
-            <h3>{item.text}</h3>
-          </div>
-        );
-      })}
+      <div className="inner">
+        {menuSelectors.map((item) => {
+          return (
+            <div
+              className={`menu-selector-container ${item.text} ${
+                selected === item.text.toLowerCase() && "selected-option"
+              }`}
+              key={item.text}
+              onClick={() => filterMenu(item.text.toLowerCase())}
+            >
+              <img src={item.icon} alt="icon img" />
+              <h3>{item.text}</h3>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 
   return (
-    <div className="dashboard-container">
+    <Fragment>
+    <div className='dashboard-container'>
       {header}
       {menuSelection}
-    </div>
+      {filteredMenu && <Menu filteredMenu={filteredMenu} />}
+      </div>
+</Fragment>
   );
 };
 

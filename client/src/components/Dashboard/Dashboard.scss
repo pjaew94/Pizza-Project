@@ -2,72 +2,95 @@
 
 @media screen and (max-width: 430px) {
     .dashboard-container {
-        @include flex(flex-start, center, column);
-        height: auto;
-        width: 100vw;
-        background: $offWhite-color;
-        margin-top: 8vh;
-        overflow-x: hidden;
 
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        overflow: hidden;
         .order-option-address-container {
             @include flex(flex-start, center, column);
-
             height: auto;
             width: 100vw;
-            padding: 0 7vw;
+            background: $offWhite-color;
+            margin-top: 8vh;
 
             .inner {
                 @include flex(flex-start, center, column);
 
-                h2 {
-                    @include main-font(1.8rem, 700, black);
-                    margin-bottom: 8px;
-                }
-                h3 {
-                    @include main-font(1rem, 700, black);
+                height: auto;
+                width: 100vw;
+                padding: 0 7vw;
+
+                .inner2 {
+                    @include flex(flex-start, center, column);
+
+                    h2 {
+                        @include main-font(1.8rem, 700, black);
+                        margin-bottom: 8px;
+                    }
+                    h3 {
+                        @include main-font(1rem, 700, black);
+                    }
                 }
             }
         }
 
         .menu-selection-container {
-            @include flex(center, center, row);
+            @include flex(center, flex-start, row);
             height: 12vh;
-            min-width: 100vw;
-            margin: 0 7vw;
 
-            .menu-selector-container {
-                @include flex(center, center, column);
-                height: 70px;
-                width: 70px;
-                padding: 7px;
-                margin-right: 15px;
-                border-radius: 10px;
-                transition: 0.3s all ease-in-out;
+            width: 100vw;
+            overflow: scroll;
 
-                img {
-                    height: 30px;
-                    width: auto;
-                    margin-bottom: 5px;
-                    transition: 0.3s all ease-in-out;
-                    background: transparent;
-                }
-
-                h3 {
-                    @include main-font(0.8rem, 700, black);
-                    transition: 0.3s all ease-in-out;
-                }
+            -ms-overflow-style: none; /* IE and Edge */
+            -webkit-scrollbar {
+                display: none;
             }
+            scrollbar-width: none; /* Firefox */
+            scrollbar-height: none; /* Firefox */
 
-            .selected-option {
-                background: $pink-color;
-                box-shadow: $box-shadow;
+            .inner {
+                @include flex(center, center, row);
+                width: auto;
 
-                .img {
-                    background: $pink-color;
+                .menu-selector-container {
+                    @include flex(center, center, column);
+                    height: 70px;
+                    width: 70px;
+                    padding: 7px;
+                    margin-right: 15px;
+                    border-radius: 10px;
+                    transition: 0.3s all ease-in-out;
+
+                    img {
+                        height: 30px;
+                        width: auto;
+                        margin-bottom: 5px;
+                        transition: 0.3s all ease-in-out;
+                        background: transparent;
+                    }
+
+                    h3 {
+                        @include main-font(0.8rem, 700, black);
+                        transition: 0.3s all ease-in-out;
+                    }
                 }
 
-                h3 {
+                .All {
+                    margin-left: 7vw;
+                }
+
+                .selected-option {
                     background: $pink-color;
+                    box-shadow: $box-shadow;
+
+                    .img {
+                        background: $pink-color;
+                    }
+
+                    h3 {
+                        background: $pink-color;
+                    }
                 }
             }
         }

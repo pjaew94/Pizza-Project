@@ -2,24 +2,49 @@
 
 @media screen and (max-width: 430px) {
     .navigator-container {
-        @include flex(center, flex-start, row);
+        @include flex(center, center, row);
         position: fixed;
         top: 0;
         left: 0;
         height: 100vh;
         width: 100vw;
-        z-index: 10;
+        z-index: 20;
         transition: 0.3s all ease-in-out;
         transform: translateX(-100vw);
         background: transparent;
 
         .inner {
+            @include flex(center, center, row);
             height: 100vh;
             width: 70vw;
             background: $offBlack-color;
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
             
+            .links {
+                @include flex(flex-start, center, column);
+                height: auto;
+                width: 70%;
+                background: transparent;
+
+                .link {
+                    @include flex(center, center, row);
+                    margin-bottom: 50px;
+                    background: transparent;
+                    
+                    .link-icon {
+                        background: transparent;
+                        color: $offWhite-color;
+                        font-size: 1.5rem;
+                        margin-right: 15px;
+                    }
+
+                    h4 {
+                        @include main-font(1.2rem, 700, $offWhite-color);
+                        background: transparent;
+                    }
+                }
+            }
         }
 
         .backdrop {
@@ -28,14 +53,6 @@
             background: transparent;
         
         }
-
-        // @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-        //     .backdrop {
-        //         -webkit-backdrop-filter: blur(4px);
-        //         backdrop-filter: blur(1px);
-        //         background-color: rgba(255, 255, 255, 0.4);
-        //     }
-        // }
     }
 
     .show-navigator {

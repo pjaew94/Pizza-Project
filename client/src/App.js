@@ -12,6 +12,8 @@ import NavigatorM from './components/NavigatorM/NavigatorM'
 import Location from './components/Location/Location'
 import Dashboard from './components/Dashboard/Dashboard'
 import FileUpload from './components/Forms/AwsTest'
+import Alert from './components/Alert/Alert'
+import Cart from './components/Cart/Cart'
 
 
 import setAuthToken from './utils/setAuthToken';
@@ -32,12 +34,14 @@ const App = () => {
       <Router>
         <Fragment>
         <NavbarM />
+        <Alert />
         <NavigatorM />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/location' component={Location} />
             <Route exact path='/upload' component={FileUpload} />
             <Route exact path='/menu' component={Dashboard} />
+            <Route exact path='/cart' component={Cart} />
           </Switch>
         </Fragment>
       </Router>

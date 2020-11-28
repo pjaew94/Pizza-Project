@@ -1,0 +1,43 @@
+@import "../config";
+
+@media screen and (max-width: 430px) {
+    .paypal-container {
+        @include flex(center, flex-start, column);
+        position: absolute;
+        right: -100vw;
+        top: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 15;
+        background: $offWhite-color;
+
+        transition: 0.2s all ease-in;
+
+
+        .paypal-back-button {
+            @include flex(center, flex-end, row);
+            height: 7vh;
+            width: 100vw;
+            padding: 4.5vh 8vw;
+
+            .paypal-back-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        .checkout-text {
+            @include main-font(1.5rem, 700, black);
+            margin-top: 15vh;
+        }
+
+        .paypal-container-inner {
+            width: 90%;
+            margin-top: 5vh;
+        }
+    }
+
+    .show-paypal {
+        right: 0vw;
+
+    }
+}

@@ -1,32 +1,85 @@
-import React, { useEffect } from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { hideNav } from '../../actions/nav';
+import { FaHome, FaCarAlt } from "react-icons/fa";
+import { MdRestaurantMenu } from "react-icons/md";
+import { CgShoppingBag } from "react-icons/cg";
+import { IconContext } from "react-icons";
 
-import './NavigatorM.scss'
+import { hideNav } from "../../actions/nav";
+import { removeLocation } from '../../actions/location';
 
-const NavigatorM = ({ hideNav, displayNav }) => {
+import "./NavigatorM.scss";
 
-    useEffect(() => {
+const NavigatorM = ({ hideNav, displayNav, removeLocation }) => {
+  const navLinks = [
+    {
+      to: "/",
+      text: "Main",
+      icon: <FaHome />,
+    },
+    {
+      to: "/location",
+      text: "Delivery Option",
+      icon: <FaCarAlt />,
+    },
+    {
+      to: "/menu",
+      text: "Menu",
+      icon: <MdRestaurantMenu />,
+    },
+    {
+      to: "/cart",
+      text: "Cart",
+      icon: <CgShoppingBag />,
+    },
+  ]; 
 
-    }, [displayNav])
+  const hideNavAndRemoveDeliveryOption = (link) => {
+    if(link === "Delivery Option") {
+        removeLocation()
+        hideNav(true)
+    } else  {
+        hideNav(true)
+    }
+  }
 
-    return (<div data-testid='navigator' className={`navigator-container ${displayNav === true ? 'show-navigator' : null}`}>
-        <div className='inner'>
-
+  return (
+    <div
+      data-testid="navigator"
+      className={`navigator-container ${
+        displayNav === true ? "show-navigator" : null
+      }`}
+    >
+      <div className="inner">
+        <div className="links">
+          {navLinks.map((link, index) => {
+            return (
+              <Link key={index} to={link.to} className='link' onClick={() => hideNavAndRemoveDeliveryOption(link.text)}>
+                <IconContext.Provider value={{ className: "link-icon" }}>
+                  {link.icon}
+                </IconContext.Provider>
+                <h4>{link.text}</h4>
+              </Link>
+            );
+          })}
         </div>
-        <div className='backdrop' onClick={() => hideNav()} />
-    </div>)
-}
- 
+      </div>
+      <div className="backdrop" onClick={() => hideNav()} />
+    </div>
+  );
+};
+
 NavigatorM.propTypes = {
-    displayNav: PropTypes.bool.isRequired
-}
+  displayNav: PropTypes.bool.isRequired,
+  removeLocation: PropTypes.func.isRequired,
+  
+};
 
 const mapStateToProps = (state) => ({
-    displayNav: state.nav.displayNav
+  displayNav: state.nav.displayNav,
 });
 
-
-export default connect(mapStateToProps, { hideNav })(NavigatorM)
+export default connect(mapStateToProps, { hideNav, removeLocation })(NavigatorM);

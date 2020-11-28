@@ -17,6 +17,8 @@ const Location = ({ setLocation, location }) => {
     zipCode: "",
   });
 
+  const [showWarning, setShowWarning] = useState(false);
+
   const [orderOption, setOrderOption] = useState();
 
   const { option, addressType, streetAddress, suiteApt, zipCode } = formData;
@@ -29,7 +31,8 @@ const Location = ({ setLocation, location }) => {
     if(option) {
     setLocation(formData);
     } else {
-        console.log("PICK ONE")
+        setShowWarning(true);
+        setTimeout(() => setShowWarning(false), 2000)
     }
   };
 
@@ -111,6 +114,12 @@ const Location = ({ setLocation, location }) => {
         return <Redirect to='/menu' />
     }
 
+    const warning = (
+      <div className={`warning-container ${showWarning && 'show-warning'}`}>
+        <h4>Please choose one of the options!</h4>
+      </div>
+    )
+
   return (
     <div className="location-container">
       <div className="inner">
@@ -135,9 +144,10 @@ const Location = ({ setLocation, location }) => {
         <form onSubmit={onSubmit}>
           {orderOption && addressForm}
           {orderOption === false ? carryOut : null}
-          <input className="submit-input" type="submit" value="Start Order!" />
+          <input className="submit-input" type="submit" value="Start Order!"  />
         </form>
       </div>
+      {warning}
     </div>
   );
 };

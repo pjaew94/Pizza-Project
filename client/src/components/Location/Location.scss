@@ -2,6 +2,7 @@
 
 @media screen and (max-width: 430px) {
     .location-container {
+        position: relative;
         height: 100vh;
         width: 100vw;
         @include flex(center, center, column);
@@ -144,6 +145,32 @@
                     }
                 }
             }
+        }
+
+        .warning-container {
+            @include flex(center, center, row);
+            width: 100vw;   
+            position: absolute;
+            top: 22vh;
+            left: 0;
+            opacity: 0;
+            transition: 0.2s all ease-in;
+
+
+            h4 {
+                @include main-font(0.9rem, 700, $offBlack-color);
+                padding: 10px 20px;
+                box-shadow: $box-shadow;
+                border-radius: 20px;
+
+            }
+        }
+
+        .show-warning {
+            opacity: 1;
+            top: 20vh;
+
+
         }
     }
 }

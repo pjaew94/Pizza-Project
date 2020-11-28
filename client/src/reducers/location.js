@@ -1,4 +1,4 @@
-import { SET_LOCATION } from "../actions/types";
+import { SET_LOCATION, REMOVE_LOCATION } from "../actions/types";
 
 const initialState = {
     loading: true,
@@ -20,6 +20,15 @@ export default function (state = initialState, action) {
           loading: false,
           location: payload
       };
+
+
+      case REMOVE_LOCATION:
+        return {
+          ...state,
+          location: {
+            option: '',
+          }
+        }
 
     default:
       return state;

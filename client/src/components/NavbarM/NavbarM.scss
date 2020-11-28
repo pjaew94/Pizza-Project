@@ -9,7 +9,7 @@
         position: fixed;
         background: transparent;
         @include flex(center, center, row);
-        z-index: 11;
+        z-index: 21;
 
         .icon-container {
             @include flex(center, center, row);

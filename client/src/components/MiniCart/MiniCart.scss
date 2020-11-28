@@ -1,0 +1,45 @@
+@import "../config";
+
+@media screen and (max-width: 430px) {
+    .mini-cart-container {
+        @include flex(center, center, row);
+        height: auto;
+        width: auto;
+        position: absolute;
+        z-index: 10;
+        bottom: 5vh;
+        left: 30vw;
+        padding: 3px 3px;
+        border-radius: 35px;
+        background: $offBlack-color;
+        box-shadow: $box-shadow;
+        text-decoration: none;
+
+        .left-container {
+            @include flex(center, center, row);
+            background: transparent;
+            margin-left: 10px;
+
+            .cart-icon {
+                font-size: 1.4rem;
+                margin-right: 6px;
+                background: transparent;
+                color: $gray-color;
+            }
+
+            h3 {
+                @include minor-font(0.9rem, 500, black);
+                background: transparent;
+                color: $gray-color;
+            }
+        }
+
+        .cost-container {
+            @include main-font(0.9rem, 500, black);
+            margin-left: 10px;
+            background: $pink-color;
+            padding: 12px;
+            border-radius: 35px;
+        }
+    }
+}

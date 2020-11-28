@@ -12,6 +12,7 @@ import saladIcon from "../../media/icon-salad.svg";
 import chickenIcon from "../../media/icon-chicken.svg";
 
 import Menu from "../Menu/Menu";
+import MiniCart from '../MiniCart/MiniCart'
 import "./Dashboard.scss";
 
 const Dashboard = ({ location: { location } }) => {
@@ -120,6 +121,7 @@ const Dashboard = ({ location: { location } }) => {
       {header}
       {menuSelection}
       {filteredMenu && <Menu filteredMenu={filteredMenu} />}
+      <MiniCart />
       </div>
 </Fragment>
   );

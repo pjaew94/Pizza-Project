@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import { Redirect } from 'react-router-dom';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -74,6 +75,11 @@ const Cart = ({ cart, removeItem, location }) => {
         setShowReject(true);
     }
   }
+
+  if(!location.location.option) {
+    return <Redirect to='/location' />
+  }
+
 
   return (
     <Fragment>

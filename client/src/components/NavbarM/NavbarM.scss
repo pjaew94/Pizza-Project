@@ -1,5 +1,72 @@
 @import "../config";
 
+.navbarM {
+    height: 40px;
+    width: 40px;
+    left: 5%;
+    top: 2%;
+    position: absolute;
+    background: transparent;
+    @include flex(center, center, row);
+    z-index: 21;
+
+    .icon-container {
+        @include flex(center, center, row);
+        height: 100%;
+        width: 40px;
+        background: transparent;
+        position: relative;
+
+        .hamburger {
+            @include flex(flex-start, space-around, column);
+            position: absolute;
+            height: 18px;
+            width: 30px;
+            background: transparent;
+            transition: 0.3s all ease-in-out;
+
+            span {
+                height: 3px;
+                border-radius: 10px;
+                background: $offBlack-color;
+            }
+
+            .span-1 {
+                width: 30px;
+            }
+
+            .span-2 {
+                width: 15px;
+            }
+        }
+
+        .hide-hamburger {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .back-arrow-container {
+            @include flex(center, center, row);
+            height: 30px;
+            width: 30px;
+            background: transparent;
+            transition: 0.3s all ease-in-out;
+
+            .icon {
+                font-size: 1.8rem;
+                background: transparent;
+                color: $offWhite-color;
+            }
+        }
+
+        .hide-back-arrow {
+            transform: translateY(-30px);
+            opacity: 0;
+        }
+    }
+}
+
+
 @media screen and (max-width: 430px) {
     .navbarM {
         height: 40px;

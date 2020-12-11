@@ -1,5 +1,48 @@
 @import "../config";
 
+.home-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    @include flex(center, flex-start, column);
+    background: $offWhite-color;
+
+    .inner {
+        height: 80vh;
+        width: 100%;
+        background: $offWhite-color;
+        @include flex(center, center, column);
+        overflow: hidden;
+
+        h1 {
+            @include main-font(2rem, 400, $black-color);
+            width: 80%;
+            transform: translateY(5vh);
+
+            span {
+                @include main-font(2.6rem, 700, $black-color);
+            }
+        }
+
+        img {
+            width: 120%;
+            height: auto;
+         
+            margin-top: 5%;
+            transform: translateY(5vh);
+        }
+    }
+}
+
+.button_container {
+    height: 20vh;
+    width: 100vw;
+    @include flex(center, center, row);
+    background: $offBlack-color;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
 
 @media screen and (max-width: 430px) {
     .home-container {

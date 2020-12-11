@@ -12,7 +12,11 @@ import PayPal from "../PayPal/PayPal";
 import OrderConfirmed from "../OrderConfirmed/OrderConfirmed";
 import CheckOutReject from '../CheckOutReject/CheckOutReject';
 
+
 const Cart = ({ cart, removeItem, location }) => {
+
+
+  
   const [deletionIndex, setDeletionIndex] = useState();
   const [display, setDisplay] = useState(false);
   const [itemName, setItemName] = useState();

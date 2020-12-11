@@ -1,5 +1,90 @@
 @import "../config";
 
+.delete-confirm-container {
+    @include flex(center, center, row);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.2s all ease-in;
+
+    .delete-confirm-inner {
+        @include flex(center, space-between, column);
+        min-height: 120px;
+        width: 70%;
+        padding: 15px;
+        border-radius: 20px;
+        box-shadow: $box-shadow;
+        transition: 0.2 all ease-in;
+
+        h3 {
+            @include main-font(0.9rem, 500, black);
+        }
+
+        .buttons-container {
+            @include flex(center, space-between, row);
+            width: 100%;
+            height: auto;
+            padding: 0 7%;
+
+            .delete-item-button,
+            .back-button {
+                @include flex(center, space-between, row);
+                height: auto;
+                width: auto;
+                padding: 10px 15px;
+       
+                border-radius: 10px;
+                
+
+                .close-icon,
+                .delete-icon {
+                    @include flex(center, center, row);
+                }
+
+                h4 {
+                    @include main-font(0.9rem, 500, black);
+                    background: transparent;
+                    margin-left: 5px;
+                }
+            }
+
+            .delete-item-button {
+                background: $pink-color;
+
+                .delete-icon {
+                    background: $pink-color;
+                }
+            }
+
+            .back-button {
+                background: $gray-color;
+
+                .close-icon {
+                    background: $gray-color;
+                }
+            }
+        }
+    }
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .delete-confirm-container {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.show {
+    z-index: 20;
+    opacity: 1;
+}
+
 @media screen and (max-width: 430px) {
     .delete-confirm-container {
         @include flex(center, center, row);

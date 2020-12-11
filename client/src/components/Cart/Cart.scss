@@ -1,4 +1,155 @@
 @import "../config";
+.cart-container {
+    @include flex(flex-start, flex-start, column);
+    height: auto;
+    width: 100%;
+    padding: 0 7%;
+    min-height: 100%;
+    background: $pink-color;
+    z-index: 2;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    h2 {
+        margin: 20% 0 4% 0;
+        @include main-font(1.8rem, 700, black);
+        background: transparent;
+    }
+
+    .cart-items-container {
+        @include flex(center, flex-start, column);
+        width: 100%;
+       
+        height: auto;
+        background: transparent;
+
+        .cart-item-container {
+            @include flex(center, space-between, row);
+            width: 100%;
+            min-height: 90px;
+            padding: 10px 15px;
+            margin-bottom: 3%;
+            border-radius: 30px;
+            box-shadow: $box-shadow;
+            
+
+            img {
+                width: 20%;
+                height: auto;
+            }
+
+            .name-size-container {
+                @include flex(flex-start, space-between, column);
+
+                .item-name {
+                    @include main-font(0.9rem, 700, black);
+                    margin: 0 0 5px 0;
+    
+                }
+
+                .item-size {
+                    @include main-font(0.8rem, 500, black);
+                }
+            }
+
+            .counter-delete-container {
+                @include flex(center, space-between, column);
+                height: 100%;
+                width: auto;
+
+                .cart-counter-container {
+                    @include flex(center, space-between, row);
+                    z-index: 10;
+
+                    .count {
+                        @include main-font(0.8rem, 700, black);
+                        margin: 5px;
+                    }
+
+                    .counter-button {
+                        @include flex(center, space-between, row);
+
+                        .plus-icon,
+                        .minus-icon {
+                            @include main-font(0.8rem, 700, black);
+                            cursor: pointer;
+                            
+                        }
+                    }
+                }
+
+                .delete-item-button {
+                    @include main-font(0.8rem, 700, black);
+                    cursor: pointer;
+                }
+
+            }
+
+            .prices-container {
+                @include flex(center, center, row);
+                @include main-font(0.9rem, 700, black);
+            }
+        }
+    }
+
+    .final-container {
+        @include flex(center, flex-start, column);
+        width: 100%;
+        height: auto;
+        padding: 10px 15px;
+        background: transparent;
+        
+        .food-beverage-cost,
+        .delivery-charge-cost,
+        .taxes-cost {
+            @include flex(center, space-between, row);
+            width: 100%;
+            background: transparent;
+            margin-bottom: 8px;
+
+            h4 {
+                @include main-font(0.9rem, 700, black);
+                background: transparent;
+            }
+
+        }
+
+        .taxes-cost {
+            border-bottom: 1px solid black;
+            padding-bottom: 8px;
+        }
+
+        .total-cost {
+            @include flex(center, space-between, row);
+            width: 100%;
+            background: transparent;
+
+            h3 {
+                @include main-font(1.1rem, 700, black);
+                background: transparent;
+            }
+            
+        }
+    }
+
+    .paypal-button {
+        @include flex(center, center, row);
+        @include main-font(1rem, 700, $offWhite-color);
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 25px;
+        background: $offBlack-color;
+        margin-top: 5%;
+
+    }
+}
 
 @media screen and (max-width: 430px) {
     .cart-container {

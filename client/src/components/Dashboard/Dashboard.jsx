@@ -14,8 +14,11 @@ import chickenIcon from "../../media/icon-chicken.svg";
 import Menu from "../Menu/Menu";
 import MiniCart from '../MiniCart/MiniCart'
 import "./Dashboard.scss";
+import ScrollContainer from 'react-indiana-drag-scroll' 
 
 const Dashboard = ({ location: { location } }) => {
+
+
   const [menu, setMenu] = useState();
   const [filteredMenu, setFilteredMenu] = useState();
   const [selected, setSelected] = useState("all");
@@ -30,7 +33,7 @@ const Dashboard = ({ location: { location } }) => {
     fetchData();
   }, []);
 
-  const { option, addressType, streetAddress, suiteApt, zipCode } = location;
+  const { option, streetAddress, suiteApt, zipCode } = location;
 
   //   menu selector.
   const menuSelectors = [
@@ -95,7 +98,7 @@ const Dashboard = ({ location: { location } }) => {
   );
 
   const menuSelection = (
-    <div className="menu-selection-container">
+    <ScrollContainer horizontal={true} className="menu-selection-container">
       <div className="inner">
         {menuSelectors.map((item) => {
           return (
@@ -112,7 +115,7 @@ const Dashboard = ({ location: { location } }) => {
           );
         })}
       </div>
-    </div>
+    </ScrollContainer>
   );
 
   return (

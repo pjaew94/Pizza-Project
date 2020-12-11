@@ -10,15 +10,8 @@ import pizzaDelivery from "../../media/pizza-delivery.png";
 import pizzaCarry from "../../media/pizza-carry.png";
 
 const Location = ({ setLocation, location }) => {
-  const [formData, setFormData] = useState({
-    option: "",
-    addressType: "",
-    streetAddress: "",
-    suiteApt: "",
-    zipCode: "",
-  });
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const [showWarning, setShowWarning] = useState(false);
 
@@ -105,7 +98,6 @@ const Location = ({ setLocation, location }) => {
       <h3>
         Pick up your order at 777 Best Pizza Ct. 17742, Los Angeles California
       </h3>
-      <h3></h3>
     </div>
   );
 

@@ -1,5 +1,45 @@
 @import "../config";
 
+.paypal-container {
+    @include flex(center, flex-start, column);
+    position: absolute;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 15;
+    background: $offWhite-color;
+
+    transition: 0.2s all ease-in;
+
+
+    .paypal-back-button {
+        @include flex(center, flex-end, row);
+        height: 7%;
+        width: 100%;
+        padding: 4.5% 8%;
+
+        .paypal-back-icon {
+            font-size: 1.2rem;
+        }
+    }
+
+    .checkout-text {
+        @include main-font(1.5rem, 700, black);
+        margin-top: 15vh;
+    }
+
+    .paypal-container-inner {
+        width: 90%;
+        margin-top: 5%;
+    }
+}
+
+.show-paypal {
+    right: 0%;
+
+}
+
 @media screen and (max-width: 430px) {
     .paypal-container {
         @include flex(center, flex-start, column);

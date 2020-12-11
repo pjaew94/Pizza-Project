@@ -1,4 +1,329 @@
 @import "../config";
+.menu-container {
+    height: 68%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background: $gray-color;
+    box-shadow: $box-shadow;
+    padding: 2% 5% 10% 5%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+
+
+    .item-card {
+        @include flex(center, space-between, row);
+        width: 100%;
+        min-height: 150px;
+        height: 25%;
+        background: $gray-color;
+        margin-bottom: 10px;
+
+        img {
+            height: auto;
+            width: 30%;
+            background: $gray-color;
+        }
+
+        .card-middle-container {
+            @include flex(flex-start, flex-start, column);
+            width: 50%;
+            height: 100%;
+            padding: 10% 3% 10% 5%;
+            background: $gray-color;
+
+            h2,
+            h3 {
+                background: $gray-color;
+            }
+
+            h2 {
+                @include main-font(1.1rem, 700, black);
+                margin-bottom: 5px;
+            }
+
+            h3 {
+                @include main-font(0.8rem, 500, $offBlack-color);
+                margin-bottom: 10px;
+            }
+
+            .loved-icon {
+                @include main-font(0.7rem, 700, $offBlack-color);
+                @include flex(center, center, row);
+
+                background: $pink-color;
+                padding: 5px 10px;
+                border-radius: 15px;
+                color: $offBlack-color;
+
+                .heart-icon {
+                    background: $pink-color;
+                    margin-right: 5px;
+                    color: $offBlack-color;
+                }
+            }
+        }
+
+        .card-right-container {
+            @include flex(center, flex-start, column);
+            width: 20%;
+            height: 100%;
+            padding: 11% 3%;
+            background: $gray-color;
+
+            h3 {
+                @include main-font(0.9rem, 700, $offBlack-color);
+                background: $gray-color;
+                margin-bottom: 50%;
+            }
+
+            .add-to-cart-button {
+                border: 2px solid $offBlack-color;
+                padding: 8px 10px;
+                border-radius: 15%;
+                background: $gray-color;
+                outline: none;
+
+                .plus-icon {
+                    @include flex(center, center, column);
+                    font-weight: 600;
+                    background: $gray-color;
+                    color: $offBlack-color;
+                }
+            }
+        }
+    }
+}
+
+.item-modifier {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $offWhite-color;
+    z-index: 30;
+    transition: 0.2s all ease-in;
+    transform: translateX(100%);
+
+    .inner {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        @include flex(center, space-between, column);
+
+        .top-container {
+            @include flex(flex-start, flex-start, column);
+            .navigator-icons {
+                @include flex(flex-end, space-between, row);
+                height: 10%;
+                width: 100%;
+                padding: 0 7%;
+                margin: 3% 0;
+
+                .back-icon-container {
+                    @include flex(center, center, row);
+                    padding: 10px;
+                    cursor: pointer;
+
+                    .back-icon {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .modify-icon {
+                    @include flex(center, space-between, column);
+
+                    padding: 12px;
+
+                    span {
+                        height: 4px;
+                        width: 4px;
+                        border-radius: 50%;
+                        background: $offBlack-color;
+                    }
+
+                    .span-1 {
+                        margin-bottom: 7px;
+                    }
+                }
+            }
+
+            .img-container {
+                @include flex(center, flex-end, column);
+                min-height: 30%;
+                height: auto;
+                width: 100%;
+                margin-bottom: 4%;
+
+                img {
+                    height: auto;
+                    width: 80%;
+                }
+            }
+
+            h2 {
+                @include main-font(1.7rem, 700, black);
+                padding: 0 12%;
+            }
+
+            .counter-price-container {
+                @include flex(center, space-between, row);
+                height: auto;
+                width: 100%;
+                margin: 20px 0;
+                padding: 0 12%;
+
+                .counter {
+                    @include flex(center, center, row);
+                    padding: 12px 22px;
+                    border-radius: 30px;
+                    border: 2px solid $gray-color;
+
+                    .minus-icon-container,
+                    .plus-icon-container {
+                        @include flex(center, center, row);
+                        padding: 3px;
+                    }
+
+                    h3 {
+                        margin: 0 20px;
+                        @include main-font(1.1rem, 700, black);
+                    }
+                }
+
+                h3 {
+                    @include main-font(1.2rem, 700, black);
+                }
+            }
+
+            h4 {
+                min-height: 100px;
+                @include main-font(0.8rem, 500, $darkGray-color);
+                line-height: 1.2rem;
+                padding: 0 12%;
+            }
+        }
+
+        .bottom-container {
+            @include flex(center, center, column);
+            height: auto;
+            width: 100%;
+            padding: 0 12%;
+           
+            
+
+            .size-container {
+                @include flex(center, space-between, row);
+                height: auto;
+                width: 100%;
+                
+            
+
+                .size-button {
+                    @include main-font(0.8rem, 700, black);
+                    @include flex(center, center, row);
+                    padding: 12px 15px;
+                    border-radius: 35px;
+                    border: 2px solid $gray-color;
+                    transition: 0.2s all ease-in-out;
+                    min-width: 80px;
+                }
+
+                .selected-size {
+                    border: 2px solid $offBlack-color;
+                    color: $gray-color;
+                    background: $offBlack-color;
+                }
+
+                .one-size-button {
+                    @include main-font(0.8rem, 700, black);
+                    @include flex(center, center, row);
+                    width: 100%;
+                    padding: 18px;
+                    color: $gray-color;
+                    background: $offBlack-color;
+                    border-radius: 35px;
+                }
+            }
+
+            .add-to-cart-button {
+                @include flex(center, center, row);
+                @include main-font(1rem, 700, black);
+                width: 100%;
+                padding: 15px;
+                border-radius: 35px;
+                background: $pink-color;
+                margin: 25px 0 45px 0;
+
+            }
+
+        }
+    }
+}
+
+.modifier-slide-in {
+    transform: translateX(0);
+}
+
+.add-ons-container {
+    @include flex(center, center, row);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 31;
+    transition: 0.3s all ease-in;
+    background: transparent;
+    transform: translateX(100%);
+
+    .empty-container {
+        height: 100%;
+        width: 40%;
+        background: transparent;
+    }
+
+    .add-ons {
+        @include flex(center, flex-start, column);
+        height: 100%;
+        width: 60%;
+        box-shadow: $box-shadow;
+        background: $offWhite-color;
+
+        .back-wrapper {
+            @include flex(flex-end, flex-end, row);
+            height: 7%;
+            width: 100%;
+            padding: 0 7%;
+
+            .back-icon-container {
+                @include flex(center, center, row);
+                padding: 10px;
+                cursor: pointer;
+
+                .back-icon {
+                    font-size: 1.3rem;
+                    color: black;
+                }
+            }
+        }
+    }
+
+}
+
+.add-ons-slide-in {
+    transform: translateX(0);
+}
 
 @media screen and (max-width: 430px) {
     .menu-container {

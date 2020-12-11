@@ -8,11 +8,12 @@ import { clearCart } from '../../actions/cart'
 
 import './PayPal.scss'
 
-const PayPal = ({ setSentOrder, setShowCompletedOrder, setOrderInfo, setCheckOut, checkOut, cost, clearCart, cart, location }) => {
+const PayPal = ({ setSentOrder, setShowCompletedOrder, setOrderInfo, setCheckOut, checkOut, cost, clearCart, cart }) => {
     const paypal = useRef()
 
     useEffect(() => {
-        window.paypal.Buttons({
+        if(window.myButton) window.myButton.close();
+        window.myButton = window.paypal.Buttons({
             createOrder: (data, actions, err) => {
                 return actions.order.create({
                     intent: "CAPTURE",
@@ -40,8 +41,10 @@ const PayPal = ({ setSentOrder, setShowCompletedOrder, setOrderInfo, setCheckOut
                 console.log(err)
             }
 
-        }).render(paypal.current)
-    }, [])
+        })
+
+        window.myButton.render(paypal.current);
+    }, [cost])
 
     return (
         <div className={`paypal-container ${checkOut && "show-paypal"}`}>

@@ -1,5 +1,101 @@
 @import "../config";
 
+.dashboard-container {
+
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .order-option-address-container {
+        @include flex(flex-start, center, column);
+        height: auto;
+        width: 100%;
+        background: $offWhite-color;
+        margin-top: 19%;
+
+        .inner {
+            @include flex(flex-start, center, column);
+
+            height: auto;
+            width: 100%;
+            padding: 0 7%;
+
+            .inner2 {
+                @include flex(flex-start, center, column);
+
+                h2 {
+                    @include main-font(1.8rem, 700, black);
+                    margin-bottom: 8px;
+                }
+                h3 {
+                    @include main-font(1rem, 700, black);
+                }
+            }
+        }
+    }
+
+    .menu-selection-container {
+        @include flex(center, flex-start, row);
+        height: 12%;
+
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .inner {
+            @include flex(center, center, row);
+            width: auto;
+
+            .menu-selector-container {
+                @include flex(center, center, column);
+                height: 70px;
+                width: 70px;
+                padding: 7px;
+                margin-right: 15px;
+                border-radius: 10px;
+                transition: 0.3s all ease-in-out;
+
+                img {
+                    height: 30px;
+                    width: auto;
+                    margin-bottom: 5px;
+                    transition: 0.3s all ease-in-out;
+                    background: transparent;
+                }
+
+                h3 {
+                    @include main-font(0.8rem, 700, black);
+                    transition: 0.3s all ease-in-out;
+                }
+            }
+
+            .All {
+                margin-left: 5%;
+            }
+
+            .selected-option {
+                background: $pink-color;
+                box-shadow: $box-shadow;
+
+                .img {
+                    background: $pink-color;
+                }
+
+                h3 {
+                    background: $pink-color;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 430px) {
     .dashboard-container {
 

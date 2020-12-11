@@ -1,5 +1,44 @@
 @import "../config";
 
+.alert-container {
+    @include flex(center, center, row);
+    position: absolute;
+    top: 10%;
+    height: auto;
+    width: 100%;
+    z-index: 0;
+    opacity: 0;
+    transition: 0.3s all ease-in-out;
+    transform: translateY(50px);
+    background: transparent;
+
+    .inner {
+        @include flex(center, space-between, row);
+        box-shadow: $box-shadow;
+        width: auto;
+        padding: 5px 10px;
+        border-radius: 35px;
+
+
+    img {
+        height: 30px;
+        width: auto;
+        margin-right: 10px;
+    }
+
+    h3 {
+        @include main-font(0.8rem, 500, black);
+
+    }
+}
+}
+
+.display-alert {
+    transform: translateY(0);
+    z-index: 20;
+    opacity: 1
+}
+
 @media screen and (max-width: 430px) {
     .alert-container {
         @include flex(center, center, row);

@@ -1,4 +1,143 @@
 @import "../config";
+.order-confirmed-container {
+    @include flex(center, flex-start, column);
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+    background: $offWhite-color;
+    transition: 0.2s all ease-in;
+
+    .order-confirmed-inner {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        .confirmation-container {
+            @include flex(flex-start, flex-start, column);
+            @include main-font(1rem, 700, black);
+            margin: 20% 0 8% 0;
+            padding: 0 7%;
+
+            .msg {
+                font-size: 1.4rem;
+            }
+
+            .check-mark-container {
+                @include flex(center, center, row);
+                width: 100%;
+                margin: 30px 0 50px 0;
+
+                .check-mark {
+                    padding: 15px;
+                    border-radius: 50%;
+                    box-shadow: $box-shadow;
+                    .check-icon {
+                        font-size: 5rem;
+                    }
+                }
+            }
+
+            h3 {
+                @include main-font(1.1rem, 500, black);
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .order-summary-container {
+            @include flex(center, flex-start, column);
+            padding: 25px 7%;
+            min-height: 420px;
+            width: 100%;
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+            box-shadow: $box-shadow;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .order-summary-text {
+                @include main-font(1.1rem, 400, black);
+                margin-bottom: 20px;
+            }
+
+            .ordered-items-container {
+                @include flex(center, flex-start, column);
+                height: auto;
+                width: 100%;
+                margin-bottom: 30px;
+                border-bottom: 2px solid rgb(184, 184, 184);
+
+                .ordered-item {
+                    @include flex(flex-start, space-between, row);
+                    height: auto;
+                    width: 100%;
+                    margin-bottom: 20px;
+
+                    .left-container-ordered-item {
+                        @include flex(flex-start, center, row);
+
+                        .item-count {
+                            margin-right: 10px;
+                            @include main-font(0.9rem, 700, black);
+                        }
+
+                        .name-size-container {
+                            @include flex(flex-start, center, column);
+
+                            .item-name {
+                                @include main-font(0.9rem, 700, black);
+                            }
+                            .item-size {
+                                @include minor-font(0.9rem, 500, black);
+                            }
+                        }
+                    }
+
+                    .item-cost {
+                        @include main-font(0.9rem, 700, black);
+                    }
+                }
+            }
+
+            .order-calculations {
+                @include flex(center, flex-start, column);
+                width: 100%;
+                height: auto;
+
+                .box {
+                    @include flex(flex-start, space-between, row);
+
+                    width: 100%;
+                    padding-left: 20px;
+                    margin-bottom: 15px;
+
+                    h4 {
+                        @include main-font(0.9rem, 400, black);
+                    }
+                }
+
+                .total-container {
+                    h4 {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.display-complete {
+    left: 0;
+}
 
 @media screen and (max-width: 430px) {
     .order-confirmed-container {
@@ -17,126 +156,118 @@
             height: 100vh;
             width: 100vw;
 
- 
-                .confirmation-container {
-                    @include flex(flex-start, flex-start, column);
-                    @include main-font(1rem, 700, black);
-                    margin: 10vh 0 8vh 0;
-                    padding: 0 7vw;
+            .confirmation-container {
+                @include flex(flex-start, flex-start, column);
+                @include main-font(1rem, 700, black);
+                margin: 10vh 0 8vh 0;
+                padding: 0 7vw;
 
-                    .msg {
-                        font-size: 1.4rem;
-                    }
+                .msg {
+                    font-size: 1.4rem;
+                }
 
-                    .check-mark-container {
-                        @include flex(center, center, row);
-                        width: 100%;
-                        margin: 30px 0 50px 0;
+                .check-mark-container {
+                    @include flex(center, center, row);
+                    width: 100%;
+                    margin: 30px 0 50px 0;
 
-                        .check-mark {
-                            padding: 15px;
-                            border-radius: 50%;
-                            box-shadow: $box-shadow;
-                            .check-icon {
-                                font-size: 5rem;
-                            }
-                        }
-                    }
-
-                    h3 {
-                        @include main-font(1.1rem, 500, black);
-                        span {
-                            font-weight: 700;
+                    .check-mark {
+                        padding: 15px;
+                        border-radius: 50%;
+                        box-shadow: $box-shadow;
+                        .check-icon {
+                            font-size: 5rem;
                         }
                     }
                 }
 
-                .order-summary-container {
-                    @include flex(center, flex-start, column);
-                    padding: 25px 7vw;
-                    min-height: 50vh;
-                    width: 100vw;
-                    border-top-left-radius: 35px;
-                    border-top-right-radius: 35px;
-                    box-shadow: $box-shadow;
-
-                    .order-summary-text {
-                        @include main-font(1.1rem, 400, black);
-                        margin-bottom: 20px;
+                h3 {
+                    @include main-font(1.1rem, 500, black);
+                    span {
+                        font-weight: 700;
                     }
+                }
+            }
 
-                    .ordered-items-container {
-                        @include flex(center, flex-start, column);
+            .order-summary-container {
+                @include flex(center, flex-start, column);
+                padding: 25px 7vw;
+                min-height: 50vh;
+                width: 100vw;
+                border-top-left-radius: 35px;
+                border-top-right-radius: 35px;
+                box-shadow: $box-shadow;
+
+                .order-summary-text {
+                    @include main-font(1.1rem, 400, black);
+                    margin-bottom: 20px;
+                }
+
+                .ordered-items-container {
+                    @include flex(center, flex-start, column);
+                    height: auto;
+                    width: 100%;
+                    margin-bottom: 30px;
+                    border-bottom: 2px solid rgb(184, 184, 184);
+
+                    .ordered-item {
+                        @include flex(flex-start, space-between, row);
                         height: auto;
                         width: 100%;
-                        margin-bottom: 30px;
-                        border-bottom: 2px solid rgb(184, 184, 184);
-                    
+                        margin-bottom: 20px;
 
-                        .ordered-item {
-                            @include flex(flex-start, space-between, row);
-                            height: auto;
-                            width: 100%;
-                            margin-bottom: 20px;
-                            
+                        .left-container-ordered-item {
+                            @include flex(flex-start, center, row);
 
-                            .left-container-ordered-item {
-                                @include flex (flex-start, center, row);
-
-                                .item-count {
-                                    margin-right: 10px;
-                                    @include main-font(0.9rem, 700, black);
-                                }
-
-                                .name-size-container {
-                                    @include flex (flex-start, center, column);
-
-                                    .item-name {
-                                        @include main-font(0.9rem, 700, black);
-                                    }
-                                    .item-size {
-                                        @include minor-font(0.9rem, 500, black);
-                                    }
-
-                                    
-                                }
-                            }
-
-                            .item-cost {
+                            .item-count {
+                                margin-right: 10px;
                                 @include main-font(0.9rem, 700, black);
                             }
+
+                            .name-size-container {
+                                @include flex(flex-start, center, column);
+
+                                .item-name {
+                                    @include main-font(0.9rem, 700, black);
+                                }
+                                .item-size {
+                                    @include minor-font(0.9rem, 500, black);
+                                }
+                            }
+                        }
+
+                        .item-cost {
+                            @include main-font(0.9rem, 700, black);
+                        }
+                    }
+                }
+
+                .order-calculations {
+                    @include flex(center, flex-start, column);
+                    width: 100%;
+                    height: auto;
+
+                    .box {
+                        @include flex(flex-start, space-between, row);
+
+                        width: 100%;
+                        padding-left: 20px;
+                        margin-bottom: 15px;
+
+                        h4 {
+                            @include main-font(0.9rem, 400, black);
                         }
                     }
 
-                    .order-calculations {
-                        @include flex(center, flex-start, column);
-                        width: 100%;
-                        height: auto;
-
-                        .box {
-                            @include flex(flex-start, space-between, row);
-                
-                            width: 100%;
-                            padding-left: 20px;
-                            margin-bottom: 15px;
-
-                            h4 {
-                                @include main-font(0.9rem, 400, black);
-                            }
-                        }
-
-                        .total-container {
-                            h4 {
-                                font-weight: 700;
-                            }
+                    .total-container {
+                        h4 {
+                            font-weight: 700;
                         }
                     }
                 }
             }
         }
-
-
-    
+    }
 
     .display-complete {
         left: 0;

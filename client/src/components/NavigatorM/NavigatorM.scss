@@ -1,5 +1,64 @@
 @import "../config";
 
+.navigator-container {
+    @include flex(center, center, row);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    transition: 0.3s all ease-in-out;
+    transform: translateX(-100%);
+    background: transparent;
+
+    .inner {
+        @include flex(center, center, row);
+        height: 100vh;
+        width: 70vw;
+        background: $offBlack-color;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        
+        .links {
+            @include flex(flex-start, center, column);
+            height: auto;
+            width: 70%;
+            background: transparent;
+
+            .link {
+                @include flex(center, center, row);
+                margin-bottom: 50px;
+                background: transparent;
+                
+                .link-icon {
+                    background: transparent;
+                    color: $offWhite-color;
+                    font-size: 1.5rem;
+                    margin-right: 15px;
+                }
+
+                h4 {
+                    @include main-font(1.2rem, 700, $offWhite-color);
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    .backdrop {
+        height: 100vh;
+        width: 30vw;
+        background: transparent;
+    
+    }
+}
+
+.show-navigator {
+    transform: translateX(0);
+}
+
+
 @media screen and (max-width: 430px) {
     .navigator-container {
         @include flex(center, center, row);

@@ -9,10 +9,14 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { FiMinus } from "react-icons/fi";
 import { AiFillHeart } from "react-icons/ai";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import ScrollContainer from 'react-indiana-drag-scroll';
+
 
 import "./Menu.scss";
 
 const Menu = ({ filteredMenu, addItem, showAlert }) => {
+
+
   // Counts the quantity the user selected
   const [counter, setCounter] = useState(1);
   // Current cost. (This will not be the one being displayed. it's used to calculate)
@@ -28,6 +32,7 @@ const Menu = ({ filteredMenu, addItem, showAlert }) => {
   // add on slider
   const [addOnsSlider, setAddOnsSlider] = useState(false);
 
+  // Filters through the menu and also sets the correct text for "medium" value
   const filteredMenuItems = filteredMenu.map((item) => {
     let sizeCaloriesConditional;
     if (item.category === "pizza") {
@@ -46,7 +51,7 @@ const Menu = ({ filteredMenu, addItem, showAlert }) => {
 
     return (
       <div className="item-card" key={item.name}>
-        <img src={item.imgLink} alt="item image" />
+        <img src={item.imgLink} alt={item.name} />
 
         <div className="card-middle-container">
           <h2>{item.name}</h2>
@@ -239,7 +244,7 @@ const Menu = ({ filteredMenu, addItem, showAlert }) => {
           </div>
 
           <div className="img-container">
-            <img src={selectedItem.imgLink} alt="item image" />
+            <img src={selectedItem.imgLink} alt={selectedItem.name} />
           </div>
 
           <h2>
@@ -311,7 +316,7 @@ const Menu = ({ filteredMenu, addItem, showAlert }) => {
 
   return (
     <Fragment>
-      <div className="menu-container">{filteredMenuItems}</div>
+      <ScrollContainer vertical={true} className="menu-container">{filteredMenuItems}</ScrollContainer>
       {itemModifier}
       {pizzaAddOns}
     </Fragment>

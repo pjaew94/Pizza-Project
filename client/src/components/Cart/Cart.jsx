@@ -59,7 +59,7 @@ const Cart = ({ cart, removeItem, location }) => {
             Delete
           </div>
         </div>
-        <div className="prices-container">${item.totalCost}</div>
+        <div className="prices-container">${Number(item.totalCost).toFixed(2)}</div>
       </div>
     );
   });

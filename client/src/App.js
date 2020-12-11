@@ -11,7 +11,6 @@ import NavbarM from "./components/NavbarM/NavbarM";
 import NavigatorM from "./components/NavigatorM/NavigatorM";
 import Location from "./components/Location/Location";
 import Dashboard from "./components/Dashboard/Dashboard";
-import FileUpload from "./components/Forms/AwsTest";
 import Alert from "./components/Alert/Alert";
 import Cart from "./components/Cart/Cart";
 
@@ -32,7 +31,6 @@ const App = () => {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/location" component={Location} />
-                <Route exact path="/upload" component={FileUpload} />
                 <Route exact path="/menu" component={Dashboard} />
                 <Route exact path="/cart" component={Cart} />
               </Switch>

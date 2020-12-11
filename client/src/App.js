@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 
@@ -15,18 +15,10 @@ import FileUpload from "./components/Forms/AwsTest";
 import Alert from "./components/Alert/Alert";
 import Cart from "./components/Cart/Cart";
 
-import setAuthToken from "./utils/setAuthToken";
 
-import { loadUser } from "./actions/auth";
-
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
 
 const App = () => {
-  useEffect(() => {
-    store.dispatch(loadUser());
-  }, []);
+
 
   return (
     <Provider store={store}>
